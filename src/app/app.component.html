@@ -55,18 +55,16 @@
 
 
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div *ngFor="let empleado of empleados; let i=index">
-      
-      {{i+1}}: {{empleado.nombre}}  {{empleado.apellido}}  {{empleado.cargo}}  {{empleado.salario}}
-      
-      
-      </div>
-    </div>
+
+<!-- Uso de @components para conseguir comunicacion entre ellos @Input a @output padre al hijo
+empleado e i estan en el template padre, hay que mencionarlos para que el hijo template los pueda usar,
+los datos se llevan al empleadohijc_component.ts  -->
+
+<app-empleado-hijo-c *ngFor="let empleado of empleados; let i=index"[empleadoDeLista]="empleado" [indice]="i"></app-empleado-hijo-c>
 
 
-  </div>
 
-</div>
+
+
+
+
