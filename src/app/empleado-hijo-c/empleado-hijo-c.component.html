@@ -5,10 +5,19 @@
         
             <!--uSO DE VARIABLES DECLARADAS YA Y PROCEDENTES DEL PADRE -->
         {{indice+1}}: {{empleadoDeLista.nombre}}  {{empleadoDeLista.apellido}}  {{empleadoDeLista.cargo}}  {{empleadoDeLista.salario}}
-        
+         
         
         </div>
+
+       
+
+        <ul style="list-style: none;">
+          <li *ngFor="let caracteristica of arrayCaracteristicas">{{caracteristica}}</li>
+        </ul>
+
       </div>
+
+      <app-caracteristicas-empleado-c (caracteristicasEmpleados)="agregarCaracteristica($event)"></app-caracteristicas-empleado-c>
   
   
     </div>

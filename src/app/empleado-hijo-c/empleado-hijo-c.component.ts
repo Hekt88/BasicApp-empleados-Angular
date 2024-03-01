@@ -8,9 +8,19 @@ import { Empleado } from '../empleado.model';
 })
 export class EmpleadoHijoCComponent {
 
-  //CON DIRECTIVA INPUT HIJO VA A ESTAR READY PARA RECIBIR ESTOS DATOS
+  //CON DIRECTIVA INPUT HIJO VA A ESTAR READY PARA RECIBIR ESTOS DATOS 
   @Input() empleadoDeLista: Empleado  //ir al tsconfig.jon y añadir compileroption stricpropertyinic para hacer que la sintaxis sea no estrica y no obligarnos a inciar estas variables
 
   @Input() indice:number;
 
+
+
+
+
+
+  arrayCaracteristicas=[''];
+
+  agregarCaracteristica(nuevaCaracteristica:string){
+    this.arrayCaracteristicas.push(nuevaCaracteristica);
+  }
 }
