@@ -10,15 +10,15 @@ export class CaracteristicasEmpleadoCComponent {
 
   @Output() caracteristicasEmpleados= new EventEmitter<string>();
 
-  //constructor(private miServicio: ServicioEmpleadosService) { }//inyeccion del servicio 
+  constructor(private miServicio: ServicioEmpleadosService) { }//inyeccion del servicio 
     
   
 
 
 
   agregaCaracteristicas(value:string){
-    //this.miServicio.muestraMensaje(value)  //uso del constructor
-    //this.caracteristicasEmpleados.emit(value);
+    this.miServicio.muestraMensaje(value)  //uso del constructor
+    this.caracteristicasEmpleados.emit(value);
   }
 
 }

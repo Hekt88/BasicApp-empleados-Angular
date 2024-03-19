@@ -13,26 +13,29 @@ import { ContactoComponentComponent } from './contacto-component/contacto-compon
 import { QuienesComponentComponent } from './quienes-component/quienes-component.component';
 import { ProyectosComponentComponent } from './proyectos-component/proyectos-component.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ActualizaComponentComponent } from './actualiza-component/actualiza-component.component';
 
 
 const appRoutes:Routes=[  //se crea constante dentro array de rutas, la url del navegador y el componenete a cargar, declararlas en declaratios, importar router module en imports y decir las rutas
 
   {path:'', component:HomeComponentComponent},
-  {path:'proyectos', component:HomeComponentComponent},
+  {path:'proyectos', component:ProyectosComponentComponent},
   {path:'quienes', component:QuienesComponentComponent},
   {path:'contacto', component:ContactoComponentComponent},
+  {path:'actualiza/:id',component:ActualizaComponentComponent}   // con /:id hace que nos seleccione el id del indice de la ruta del componente en su html
   
 
 ]
 @NgModule({
-  declarations: [
+  declarations: [  //aqui se registran los componentes que creamos automaticamente
     AppComponent,
     EmpleadoHijoCComponent,
     CaracteristicasEmpleadoCComponent,
     HomeComponentComponent,
     ContactoComponentComponent,
     QuienesComponentComponent,
-    ProyectosComponentComponent
+    ProyectosComponentComponent,
+    ActualizaComponentComponent
   ],
   imports: [
     BrowserModule,

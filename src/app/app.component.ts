@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Empleado } from './empleado.model';
-import { ServicioEmpleadosService } from './servicio-empleados.service';
-import { EmpleadosService } from './empleados.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,9 +7,20 @@ import { EmpleadosService } from './empleados.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
-  titulo = 'Listado de empleados';
 
+  constructor() {
+    
+  }
 
+  ngOnInit(): void {
+    
+  }
+}
+ 
+
+//hemos traslado todo este contenido a la nueva ruta de home-componenets
+
+/*
   constructor(private miServicio:ServicioEmpleadosService, private empleadosService:EmpleadosService){
     
     //this.empleados=this.empleadosService.empleados; lo metemos dentro del onInit
@@ -32,7 +41,7 @@ export class AppComponent implements OnInit{
     new Empleado("Tony", "Montana", "Jefe de seccion", 4500),
     new Empleado("Luka", "Modric", "Administrativo", 3500),
 
-*/
+
   
 
 
@@ -52,3 +61,6 @@ export class AppComponent implements OnInit{
   cuadroSalario:number=0;
 
 }
+
+
+*/
