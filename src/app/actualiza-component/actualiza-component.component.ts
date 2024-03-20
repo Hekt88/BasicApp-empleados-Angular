@@ -16,7 +16,14 @@ export class ActualizaComponentComponent implements OnInit{
   
   empleados:Empleado[]=[];
 
+  accion:number;
+
+
+
+
   ngOnInit(): void {
+
+    this.accion=parseInt(this.route.snapshot.queryParams['accion'] ) //alamcena el numero 1 o 2 de la variable accion del html a traves de route.captura
     
     this.empleados=this.empleadosService.empleados;
 
@@ -37,7 +44,7 @@ export class ActualizaComponentComponent implements OnInit{
 
 
 
-
+/*
   actualizaEmpleado(){
     let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario)
     //this.miServicio.muestraMensaje("Nombre del empleado: " + miEmpleado.nombre)  //llamada al constructor 
@@ -46,6 +53,39 @@ export class ActualizaComponentComponent implements OnInit{
     this.router.navigate(['']); //rediccionamiento a home
 
     
+  }
+
+  eliminaEmpleado(){
+
+
+    this.empleadosService.eliminarEmpleado(this.indice); //no olvidar registrar el servicio en app.module en proveedores tambien hay que crearlo en empleados.service.ts
+
+    this.router.navigate(['']);
+
+
+  }
+
+*/
+
+  actualizaEmpleado(){
+
+    if(this.accion==1){
+    let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario)
+
+    //this.miServicio.muestraMensaje("Nombre del empleado: " + miEmpleado.nombre)  //llamada al constructor 
+    this.empleadosService.actualizarEmpleado(this.indice,miEmpleado); //no olvidar registrar el servicio en app.module en proveedores
+
+    this.router.navigate(['']); //rediccionamiento a home
+
+    }else{
+
+
+
+    this.empleadosService.eliminarEmpleado(this.indice); //no olvidar registrar el servicio en app.module en proveedores tambien hay que crearlo en empleados.service.ts
+
+    this.router.navigate(['']);
+
+    }
   }
 
 

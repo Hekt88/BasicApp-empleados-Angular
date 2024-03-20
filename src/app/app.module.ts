@@ -14,6 +14,7 @@ import { QuienesComponentComponent } from './quienes-component/quienes-component
 import { ProyectosComponentComponent } from './proyectos-component/proyectos-component.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ActualizaComponentComponent } from './actualiza-component/actualiza-component.component';
+import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component';
 
 
 const appRoutes:Routes=[  //se crea constante dentro array de rutas, la url del navegador y el componenete a cargar, declararlas en declaratios, importar router module en imports y decir las rutas
@@ -22,7 +23,8 @@ const appRoutes:Routes=[  //se crea constante dentro array de rutas, la url del 
   {path:'proyectos', component:ProyectosComponentComponent},
   {path:'quienes', component:QuienesComponentComponent},
   {path:'contacto', component:ContactoComponentComponent},
-  {path:'actualiza/:id',component:ActualizaComponentComponent}   // con /:id hace que nos seleccione el id del indice de la ruta del componente en su html
+  {path:'actualiza/:id',component:ActualizaComponentComponent},// con /:id hace que nos seleccione el id del indice de la ruta del componente en su html
+  {path:'**', component:ErrorPersonalizadoComponent}   //el path del error siemore el ultimo ** indica que todo lo que sea contrario a lo anterior
   
 
 ]
