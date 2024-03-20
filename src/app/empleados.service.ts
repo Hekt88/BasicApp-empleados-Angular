@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import { Empleado } from "./empleado.model";
 import { ServicioEmpleadosService } from "./servicio-empleados.service";
+import { DataServices } from "./data.services";
 
 @Injectable()   //permite inyectar un servicio dentro de otro
 export class EmpleadosService{
 
-
-    constructor(private servicioVentanaEmergente:ServicioEmpleadosService){
+  //importante inyectar en el constructor los servicios creados
+    constructor(private servicioVentanaEmergente:ServicioEmpleadosService, private dataService:DataServices){
 
     }
 
@@ -26,6 +27,8 @@ export class EmpleadosService{
         empleado.nombre + "\n" + "Salario: " + empleado.salario);
 
         this.empleados.push(empleado);
+
+        this.dataService.guardarEmpleados(this.empleados)
       }
 
 
