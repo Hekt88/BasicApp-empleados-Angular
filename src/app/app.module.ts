@@ -17,6 +17,11 @@ import { ActualizaComponentComponent } from './actualiza-component/actualiza-com
 import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component';
 import { DataServices } from './data.services';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
+import { CookieService } from 'ngx-cookie-service';
+import { LoginGuardian } from './login/login-guardian';
+
 
 
 const appRoutes:Routes=[  //se crea constante dentro array de rutas, la url del navegador y el componenete a cargar, declararlas en declaratios, importar router module en imports y decir las rutas
@@ -24,8 +29,9 @@ const appRoutes:Routes=[  //se crea constante dentro array de rutas, la url del 
   {path:'', component:HomeComponentComponent},
   {path:'proyectos', component:ProyectosComponentComponent},
   {path:'quienes', component:QuienesComponentComponent},
-  {path:'contacto', component:ContactoComponentComponent},
+  {path:'contacto', component:ContactoComponentComponent, canActivate:[LoginGuardian]},
   {path:'actualiza/:id',component:ActualizaComponentComponent},// con /:id hace que nos seleccione el id del indice de la ruta del componente en su html
+  {path:'login', component:LoginComponent},
   {path:'**', component:ErrorPersonalizadoComponent}   //el path del error siemore el ultimo ** indica que todo lo que sea contrario a lo anterior
   
 
@@ -39,7 +45,9 @@ const appRoutes:Routes=[  //se crea constante dentro array de rutas, la url del 
     ContactoComponentComponent,
     QuienesComponentComponent,
     ProyectosComponentComponent,
-    ActualizaComponentComponent
+    ActualizaComponentComponent,
+    LoginComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -48,7 +56,7 @@ const appRoutes:Routes=[  //se crea constante dentro array de rutas, la url del 
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [ServicioEmpleadosService, EmpleadosService, DataServices],
+  providers: [ServicioEmpleadosService, EmpleadosService, DataServices, LoginService, CookieService,LoginGuardian],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

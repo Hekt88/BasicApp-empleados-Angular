@@ -13,11 +13,7 @@ export class EmpleadosService{
 
     empleados:Empleado[]=[
 
-        new Empleado("Héctor", "Apellido", "Presidente", 7500),
-        new Empleado("Walter", "White", "Director", 5500),
-        new Empleado("Tony", "Montana", "Jefe de seccion", 4500),
-        new Empleado("Luka", "Modric", "Administrativo", 3500),
-    
+       
     
       ];
 
